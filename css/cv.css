@@ -1,0 +1,788 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+	--delay: 0;
+	--duration: 800ms;
+	--iterations: 1;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+html{
+    scroll-behavior: smooth;
+    font-family: 'Poppins';
+    background-color: rgb(20, 20, 20);
+    
+}
+
+a{
+  text-decoration: none;
+}
+
+.fullPageContent {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  padding: 2rem 5rem;
+  
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex: 1;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.title-container {
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.title-anim,
+.title-anim::after {
+  animation-delay: var(--animation-delay, 2s);
+  animation-iteration-count: var(--iterations, 1);
+  animation-duration: var(--duration, 800ms);
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.title-anim {
+  --animation-delay: var(--delay, 0);
+  --animation-duration: var(--duration, 800ms);
+  --animation-iterations: var(--iterations, 1);
+  position: relative;
+  font-size: 3rem;
+  font-weight: 600;
+  animation-name: clip-text;
+  color: #FFF;
+  white-space: nowrap;
+  cursor: default;
+  z-index: 999;
+}
+  
+  .title-anim::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #782CF2;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    pointer-events: none;
+    animation-name: text-revealer;
+  
+}
+
+
+@keyframes clip-text {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+
+@keyframes text-revealer {
+  
+  0%, 50% {
+    transform-origin: 0 50%;
+  }
+  
+  60%, 100% {
+    transform-origin: 100% 50%;		
+  }
+
+  
+  60% {
+    transform: scaleX(1);
+  }
+  
+  100% {
+    transform: scaleX(0);
+  }
+
+
+}
+.home-container{
+  background-color: rgb(42, 42, 42);
+  border-radius: 10px;
+  padding: 1.1rem;
+}
+
+.home-container h1{
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.btn-home{
+  padding: .8rem;
+  border-radius: 20px;
+  background-color: #782CF2;
+  border: none;
+  font-family: 'Poppins';
+  float: right;
+  color: white;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.school-container {
+  background-color: rgb(42, 42, 42);
+  border-radius: 10px;
+  flex: 1;
+  padding: .3rem;
+}
+
+.qualifications {
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+}
+
+.qualifications-flex {
+  display: flex;
+  margin-top: 2rem;
+  margin-left: .4rem;
+}
+
+.title-qualifications {
+  color: white;
+  font-weight: 400;
+  font-size: .9rem;
+  margin-left: .5rem;
+}
+
+.years-qualifications {
+  color: white;
+  font-weight: 400;
+  font-size: 1rem;
+  background-color: #42c58a;
+  padding: 0.5rem 0.7rem; 
+  transform: rotate(-90deg);
+}
+
+.opt-school{
+  font-size: .7rem;
+  font-style: italic;
+}
+
+.years-qualifications-actu {
+  color: white;
+  font-weight: 400;
+  font-size: 1rem;
+  white-space: nowrap; 
+  rotate: -90deg; 
+  background-color: #782CF2;
+  padding: .7rem;
+}
+
+
+.exp-container{
+  background-color:  rgb(42, 42, 42);
+  border-radius: 10px;
+  flex: 1;
+}
+
+.nav{
+  background-color:  rgb(42, 42, 42);
+  color: white;
+  border-radius: 10px;
+  flex: .2;
+  height: 80px;
+}
+
+.nav-logo{
+  display: flex;
+  justify-content: left;
+  padding: .8rem;
+  margin-left: 1.2rem;
+  gap: 50px;
+
+}
+
+.ri-arrow-left-s-line{
+  color: white;
+  font-size: 1.1rem;
+}
+
+.ri-arrow-left-s-line:hover{
+  background: #782CF2;
+  border-radius: 50%;
+  padding: .2rem;
+}
+
+.memoji{
+  background-color: #782CF2;
+  border-radius: 10px;
+  flex: 1;
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.memoji img{
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.networks{
+  position: relative;
+  padding: .5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(42, 42, 42);
+  align-items: center;
+  flex: .3;
+}
+
+.ri-linkedin-fill,
+.ri-github-line,
+.ri-behance-fill,
+.ri-heart-fill {
+    display: flex;
+    align-items: bottom;
+    color: rgb(42, 42, 42);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.ri-linkedin-fill:hover,
+.ri-github-line:hover,
+.ri-behance-fill:hover
+{
+background-color: rgba(128, 128, 128, 0.294);
+color: white;
+}
+
+.ri-heart-fill:hover {
+    background-color: #F05365;
+    cursor: pointer;
+}
+
+.personal{
+  background-color:  white;
+  color: white;
+  border-radius: 10px;
+  flex: 1.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.personal-container{
+  width: 100%;
+}
+
+#click-counter{
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: .3rem;
+}
+
+
+#container-flip {
+  color:#999;
+  text-transform: uppercase;
+  font-size:26px;
+  font-weight:bold;
+  position:fixed;
+  display:block;
+  text-align: center;
+}
+
+#flip {
+  height:50px;
+  overflow:hidden;
+  
+}
+
+#flip > div > div {
+  color:#fff;
+  height:45px;
+  margin-bottom:45px;
+  display:inline-block;
+
+}
+
+#flip div:first-child {
+  animation: show 5s linear infinite;
+}
+
+#flip div div {
+  background:#42c58a;
+}
+#flip div:first-child div {
+  background:#4ec7f3;
+}
+#flip div:last-child div {
+  background:#DC143C;
+}
+
+@keyframes show {
+  0% {margin-top:-270px;}
+  5% {margin-top:-180px;}
+  33% {margin-top:-180px;}
+  38% {margin-top:-90px;}
+  66% {margin-top:-90px;}
+  71% {margin-top:0px;}
+  99.99% {margin-top:0px;}
+  100% {margin-top:-270px;}
+}
+
+p {
+  position:fixed;
+  width:20%;
+  font-size:12px;
+  color:#999;
+  background:  rgb(42, 42, 42);
+}
+
+.langage-container{
+  background-color: grey;
+  flex: 1;
+}
+
+.tabs {
+	display: flex;
+	flex-wrap: wrap;
+  font-family: 'Poppins';
+  font-size: .8rem;
+  padding: .7rem;
+  height: 70%;
+}
+.tabs label {
+	order: 1; 
+	display: block;
+	padding: .3rem;
+	margin-right: 0.2rem;
+	cursor: pointer;
+  background:  rgba(0, 0, 0, 0.336);
+  margin-top: 1rem;
+  
+}
+.tabs .tab {
+  order: 99; 
+  flex-grow: 1;
+	width: 70%;
+	display: none;
+  background:  rgb(42, 42, 42);
+  height: 100%;
+
+}
+
+.data-tab{
+  
+  font-size: 1rem;
+  margin-left: .3rem;
+  margin-top: 1rem;
+}
+
+.years-tab{
+  font-style: italic;
+  color: white;
+  font-size: .8rem;
+}
+
+.tabs input[type="radio"] {
+	display: none;
+}
+.tabs input[type="radio"]:checked + label {
+	background: white;
+}
+.tabs input[type="radio"]:checked + label + .tab {
+	display: block;
+}
+
+@media (max-width: 45em) {
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+  }
+}
+
+.langage-container{
+  border-radius: 10px;
+  background-color:  rgb(42, 42, 42);
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.title-dev{
+  color: white;
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+
+}
+
+.icons-flex{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.img_icons{
+  height: 55px;
+  width: auto;
+  transition: all 0.2s ease-in-out;
+}
+
+.img_icons:hover{
+  transform: translateY(-.25rem);
+  filter: drop-shadow(16px 16px 20px rgb(201, 22, 174)) invert(65%);
+}
+
+.img_icons img{
+  color: yellow;
+}
+
+.skills-dev .img_icons,
+.skills-designer .img_icons {
+  width: auto; 
+  height: 50px; 
+  object-fit: contain;
+  flex-wrap: wrap;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (min-width: 320px) and (max-width: 575px) {
+  
+
+  .fullPageContent {
+    padding: 1rem;
+    display: flex;
+  }
+
+  .left{
+    width: 100%;
+  }
+
+  .row{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+  
+  }
+
+  .school-exp-container{
+    gap: 20px;
+  }
+  
+
+  .title-anim{
+    font-size: 1.8rem;
+  }
+
+  .home-title{
+    font-size: .6rem;
+  }
+
+  .btn-home{
+    padding: .6rem;
+    font-size: .8rem;
+  }
+
+  .personal{
+   display: none;
+  }
+
+  .personal-container{
+    display: flex;
+    gap: 20px;
+  }
+
+
+  .flex-row{
+    display: flex;
+    gap: 20px;
+  }
+
+  .langage-container{
+    margin-bottom: 50px;
+    height: 350px;
+  }
+
+  p{
+    position: relative;
+  }
+
+  .data-tab{
+    width: 100%;
+  }
+
+  .skills-designer{
+height: 140px;
+margin-top: 20px;
+}
+
+.icons-flex img{
+  width: 20%;
+  height: auto;
+}
+
+.left.column {
+  order: 1;
+}
+.right.column {
+  order: 2;
+}
+
+.memoji img{
+  width: 70%;
+}
+
+.school-container{
+  margin-bottom: 20px;
+  
+}
+
+.qualifications{
+  margin-bottom: 1rem;
+}
+
+}
+
+
+/* For medium devices */
+@media screen and (min-width: 576px){
+
+
+  .fullPageContent {
+    padding: 1rem;
+  }
+
+  .left{
+    width: 100%;
+  }
+
+  .row{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+  
+  }
+
+  .personal-container{
+    display: flex;
+    gap: 20px;
+  }
+
+  .personal{
+    display: flex;
+  }
+
+.memoji img{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    width: 70%;
+}
+.home-title{
+    font-size: .85rem
+}
+
+  .btn-home{
+    padding: .9rem;
+    font-size: .9;
+  }
+
+  .flex-row{
+    display: flex;
+    gap: 20px;
+  }
+
+  .memoji{
+    width: 80%;
+  }
+
+  #container-flip {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  }
+
+p{
+  position: relative;
+}
+
+.data-tab{
+  width: 100%;
+}
+
+.skills-designer{
+  height: 140px;
+  margin-top: 20px;
+  }
+
+
+  .qualifications{
+    overflow: hidden;
+  }
+
+  .title-qualifications{
+    overflow: hidden;
+  }
+
+    .school-exp-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .br-container{
+    display: none;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 767px){
+  .school-exp-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+.data-tab{
+  height: 100%;
+}
+}
+
+
+@media screen and (min-width: 1000px){
+
+  .fullPageContent {
+    display: flex;
+    width: 100%;
+    padding: 3rem 5rem;
+  }
+
+  .row{
+    display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex: 1;
+  }
+  
+
+  .left{
+    width: 50%;
+  }
+
+  .right{
+    width: 50%;
+  }
+
+.memoji{
+  height: 100%;
+}
+
+
+.home-title{
+  font-size: 1rem;
+}
+
+.title-anim{
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.btn-home{
+  padding: .8rem;
+  font-size: 1rem;
+}
+
+
+.nav{
+height: 100px;
+}
+
+.memoji img{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.img_icons {
+  width: 48%; 
+  height: auto;
+  object-fit: contain;
+}
+
+.years-qualifications{
+  font-size: 0.9rem; 
+}
+
+.years-qualifications-actu{
+  font-size: 0.9rem; 
+}
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1290px) {
+
+  .school-exp-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (min-width: 1300px){
+
+  .title-anim{
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+}
